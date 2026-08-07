@@ -1,4 +1,4 @@
-# MLOps CI/CD — GitHub Actions + Hugging Face Hub
+# MLOps CI/CD — GitHub Actions + Hugging Face Hub!!
 
 Every push to `main` trains a model, evaluates it, and — only if it passes
 an accuracy threshold — deploys it to Hugging Face Hub automatically.
