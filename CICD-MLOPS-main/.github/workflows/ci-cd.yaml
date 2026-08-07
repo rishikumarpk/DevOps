@@ -3,16 +3,24 @@ name: MLOps CI/CD
 on:
   pull_request:
     branches: [main]
+    paths:
+    - 'DevOps/CICD-MLOPS-main/**'
   push:
     branches: [main]
+    paths:
+    - 'DevOps/CICD-MLOPS-main/**'
 
 env:
   PYTHON_VERSION: "3.11"
+  PROJECT_DIR: "DevOps/CICD-MLOPS-main"
 
 jobs:
   # Runs on every PR and push: quick sanity checks, no deployment.
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.PROJECT_DIR }}
     steps:
       - uses: actions/checkout@v4
 
@@ -33,6 +41,9 @@ jobs:
   train_and_evaluate:
     needs: test
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.PROJECT_DIR }}
     steps:
       - uses: actions/checkout@v4
 
@@ -66,6 +77,9 @@ jobs:
     needs: train_and_evaluate
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.PROJECT_DIR }}
     steps:
       - uses: actions/checkout@v4
 
