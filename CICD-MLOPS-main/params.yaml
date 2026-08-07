@@ -1,0 +1,11 @@
+prepare:
+  test_size: 0.2
+  random_state: 42
+
+train:
+  n_estimators: 150
+  max_depth: 6
+  random_state: 42
+
+evaluate:
+  min_accuracy: 0.80   ##if accuracy is below this, the pipeline fails and nothing deploys
