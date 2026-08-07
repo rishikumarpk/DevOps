@@ -1,0 +1,6 @@
+/model.pkl
+/metrics.json
+mlflow.db
+__pycache__/
+*.pyc
+.dvc/config.local
