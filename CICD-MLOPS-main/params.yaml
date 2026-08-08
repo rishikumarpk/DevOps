@@ -8,4 +8,4 @@ train:
   random_state: 42
 
 evaluate:
-  min_accuracy: 0.65   ##if accuracy is below this, the pipeline fails and nothing deploys
+  min_accuracy: 0.75   ##if accuracy is below this, the pipeline fails and nothing deploys
